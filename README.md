@@ -1,6 +1,16 @@
 # Setup
 Clone this repository to the home directory of the user: ```git clone https://github.com/Jdude311/I2HCE_project/edit/main/README.md```
 
+This has two versions, one for each prototype. One is hte ```buttons.py``` file, and the other is the ```qrcode_mpd_test.py``` file. 
+
+## Hardware
+This is all running on a raspberry pi 4B.
+### QR Code
+Uses a raspberry pi v1.3 camera but would probably work just fine with any other camera. It's the one that uses the ribbon cable. 
+
+### Buttons
+Literally just uses buttons hooked up to GPIO pins. dead simple. You have to configure which GPIO pins have buttons on them in the ```buttons.py``` file because a proper configuration file for better configurability was out of the scope of this course, but it's really quite simple and this project has so little code that it's perfectly fine.
+
 ## Raspberry Pi Configuration
 We used a Raspberry Pi 4B here with raspbian something headless. 
 
@@ -18,8 +28,8 @@ Apt requirements:
 
 GPIOZERO library should be preinstalled on raspberry pi os.
 
-Python requires a venv setup in this directory to run the qrcode one.
-- set up venv
+Python requires a venv setup in this directory to run ```qrode_mpd_test.py```.
+- set up venv with root directory in ```~/I2HCE_project/```
 - ```pip install -r requirements.txt```
 - that's all for that
 
