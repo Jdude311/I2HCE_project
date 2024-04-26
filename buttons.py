@@ -18,6 +18,7 @@ song_names = {
 
 class AlbumButton:
     number_buttons = 0
+    active_button = None
     def __init__(self, pin):
         AlbumButton.number_buttons += 1
         self.number = AlbumButton.number_buttons
@@ -27,7 +28,12 @@ class AlbumButton:
 
     def callback(self):
         print("Button %d pressed!" % self.pin)
-        os.system("mpc clear && mpc add \"%s\" && mpc play" % (song_names[self.number]))
+        song_name = song_names[self.number]
+        if AlbumButton.active_button == self.number:
+            os.system("mpc toggle")
+        else:
+            os.system("mpc clear && mpc add \"%s\" && mpc play" % song_name)
+        AlbumButton.active_button = self.number
 
 class MediaButton:
     def __init__(self, pin, media_function):
