@@ -11,14 +11,12 @@ camera.start()
 
 detector = cv2.QRCodeDetector()
 
-play_command = "mpc add" 
-
 song_names = {
-        1: "Thingy",
-        2: "El_Cuarto_De_Tula.mp3",
+        1: "Dancing_on_the_Ceiling",
+        2: "Neil_Diamond",
         3: "Thriller",
-        4: "Oblivion.mp3",
-        5: "Strangelove.mp3",
+        4: "70s_Classics && mpc shuffle",
+        5: "80s_Hits && mpc shuffle",
         6: "Lionel_Richie"
 }
 
@@ -42,7 +40,7 @@ while True:
             os.system("mpc play")
         else:
             currently_playing = data
-            os.system("mpc clear && mpc add \"%s\" && mpc play" % song_names[data])
+            os.system("mpc clear && mpc add %s && mpc play" % song_names[data])
     else:
         if seconds_to_pause <= 0:
             os.system("mpc pause")
