@@ -8,12 +8,12 @@ bounce_time_param = 0.05
 play_command = "mpc add" 
 
 song_names = {
-        1: "Buggin_Out.mp3",
-        2: "El_Cuarto_De_Tula.mp3",
-        3: "Empire_Ants.mp3",
-        4: "Oblivion.mp3",
-        5: "Strangelove.mp3",
-        6: "Teardrop.mp3"
+        1: "Dancing_on_the_Ceiling",
+        2: "Neil_Diamond",
+        3: "Thriller",
+        4: "70s_Classics && mpc shuffle",
+        5: "80s_Hits && mpc shuffle",
+        6: "Lionel_Richie"
 }
 
 class AlbumButton:
@@ -32,7 +32,7 @@ class AlbumButton:
         if AlbumButton.active_button == self.number:
             os.system("mpc toggle")
         else:
-            os.system("mpc clear && mpc add \"%s\" && mpc play" % song_name)
+            os.system("mpc clear && mpc add %s && mpc play" % song_name)
         AlbumButton.active_button = self.number
 
 class MediaButton:
