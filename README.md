@@ -42,6 +42,10 @@ Playlists play by default in alphabetical order. Name the files "1-Song_Title_He
 
 Youtube playlists can be downloaded using ```yt-dlp``` using the following command: ```yt-dlp -x --audio-format mp3 -o "%(playlist_index)d-%(title)s" "https://youtube.com/playlist?list=KJSDJKFHKLSJHDLFKJHSDLKFHJSDKHF"```
 
+The following youtube playlists were used for mixes:
+- [70s_Classics](https://www.youtube.com/watch?v=5oWyMakvQew&list=PLjl8I_uytVg9Nxkhc-LxcKEWPDy-hn2pA)
+- [80s_Hits](https://www.youtube.com/watch?v=djV11Xbc914&list=PLGBuKfnErZlDYOaD2bOazzCYvy13ozt7C)
+
 ## MPD configuration
 You msut run ```ln -s ~/I2HCE_project/mpd.conf ~/.config/mpd/``` in order to configure MPD correctly.
 
