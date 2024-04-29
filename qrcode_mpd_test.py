@@ -1,10 +1,13 @@
 #!/bin/python3
+from gpiozero import Button
 from signal import pause
 import os
 
 from picamera2 import Picamera2
 from time import sleep
 import cv2
+
+bounce_time_param = 0.05
 
 camera = Picamera2()
 camera.start()
@@ -20,10 +23,23 @@ song_names = {
         6: "Lionel_Richie"
 }
 
+class MediaButton:
+    def __init__(self, pin, media_function):
+        self.pin = pin
+        self.button = Button(pin, bounce_time=bounce_time_param)
+        self.media_function = media_function
+        self.button.when_released = self.callback
+
+    def callback(self):
+        os.system(self.media_function)
+
 currently_playing = 0
 step_duration = 0.25
 seconds_to_pause = 0
 data = None
+
+prev_button = MediaButton(2, "mpc prev")
+skip_button = MediaButton(3, "mpc next")
 
 while True:
     sleep(step_duration)
